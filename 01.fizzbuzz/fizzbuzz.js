@@ -1,18 +1,15 @@
-let Number = 1
-
-function FizzBuzz (MaxNumber) {
-  while (Number <= MaxNumber) {
-    if (Number % 15 === 0) {
-      console.log('FizzBuzz')
-    } else if (Number % 5 === 0) {
+function fizzBuzz (maxNumber) {
+  for (let number = 1; number <= maxNumber; number++) {
+    if (number % 15 === 0) {
+      console.log('fizzBuzz')
+    } else if (number % 5 === 0) {
       console.log('Buzz')
-    } else if (Number % 3 === 0) {
+    } else if (number % 3 === 0) {
       console.log('Fizz')
     } else {
-      console.log(Number)
+      console.log(number)
     }
-    Number += 1
   }
 }
 
-FizzBuzz(20)
+fizzBuzz(20)
