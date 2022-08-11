@@ -54,11 +54,10 @@ function dispCalender (startDate, endDate) {
 function main () {
   const startDate = new Date(getYear(), getMonth(), 1)
   const endDate = new Date(getYear(), getMonth() + 1, 0)
-  const outputCalender = dispCalender(startDate, endDate)
 
   console.log('\t' + '\t' + (startDate.getMonth() + 1) + '月' + '\t' + startDate.getFullYear() + '\t' + '\t')
   console.log(weeks.join('\t'))
-  console.log(outputCalender)
+  console.log(dispCalender(startDate, endDate))
 }
 
 main()
