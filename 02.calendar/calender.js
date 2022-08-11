@@ -4,10 +4,10 @@ const args = require('minimist')(process.argv.slice(2))
 const weeks = ['日', '月', '火', '水', '木', '金', '土']
 
 function getYear () {
-  const today = new Date()
   let year
 
   if (typeof args.y === 'undefined') {
+    const today = new Date()
     year = today.getFullYear()
   } else {
     year = args.y
@@ -16,10 +16,10 @@ function getYear () {
 }
 
 function getMonth () {
-  const today = new Date()
   let month
 
   if (typeof args.m === 'undefined') {
+    const today = new Date()
     month = today.getMonth()
   } else {
     month = args.m - 1
