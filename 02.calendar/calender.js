@@ -20,9 +20,9 @@ function getMonth () {
   let month
 
   if (typeof args.m === 'undefined') {
-    month = today.getMonth() + 1
+    month = today.getMonth()
   } else {
-    month = args.m
+    month = args.m - 1
   }
 
   return month
@@ -56,7 +56,7 @@ function main () {
   const endDate = new Date(getYear(), getMonth() + 1, 0)
   const outputCalender = dispCalender(startDate, endDate)
 
-  console.log('\t' + '\t' + startDate.getMonth() + '月' + '\t' + startDate.getFullYear() + '\t' + '\t')
+  console.log('\t' + '\t' + (startDate.getMonth() + 1) + '月' + '\t' + startDate.getFullYear() + '\t' + '\t')
   console.log(weeks.join('\t'))
   console.log(outputCalender)
 }
