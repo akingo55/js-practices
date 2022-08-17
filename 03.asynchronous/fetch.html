@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="uft-8">
+<title>fetch api</title>
+</head>
+<body>
+<script>
+  async function get () {
+    const result = await fetch('https://bootcamp.fjord.jp/')
+      .then((response) => {
+        if (response.ok) {
+            return response.text();
+        } else {
+          throw new Error();
+        }
+      })
+      .catch((reason) => {
+        console.log(reason);
+      });
+    console.log(result);
+  }
+  get ();
+</script>
+</body>
+</html>
