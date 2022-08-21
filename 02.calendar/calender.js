@@ -1,28 +1,36 @@
 #!/usr/bin/env node
 
-const args = require('minimist')(process.argv.slice(2))
-const weeks = ['日', '月', '火', '水', '木', '金', '土']
+function main () {
+  const args = require('minimist')(process.argv.slice(2))
+  const weeks = ['日', '月', '火', '水', '木', '金', '土']
+  const startDate = new Date(getYear(args.y), getMonth(args.m), 1)
+  const endDate = new Date(getYear(args.y), getMonth(args.m) + 1, 0)
 
-function getYear () {
+  console.log('\t' + '\t' + (startDate.getMonth() + 1) + '月' + '\t' + startDate.getFullYear() + '\t' + '\t')
+  console.log(weeks.join('\t'))
+  console.log(dispCalender(startDate, endDate))
+}
+
+function getYear (argYear) {
   let year
 
-  if (typeof args.y === 'undefined') {
+  if (typeof argYear === 'undefined') {
     const today = new Date()
     year = today.getFullYear()
   } else {
-    year = args.y
+    year = argYear
   }
   return year
 }
 
-function getMonth () {
+function getMonth (argMonth) {
   let month
 
-  if (typeof args.m === 'undefined') {
+  if (typeof argMonth === 'undefined') {
     const today = new Date()
     month = today.getMonth()
   } else {
-    month = args.m - 1
+    month = argMonth - 1
   }
 
   return month
@@ -49,15 +57,6 @@ function dispCalender (startDate, endDate) {
   }
 
   return calender.join('\n')
-}
-
-function main () {
-  const startDate = new Date(getYear(), getMonth(), 1)
-  const endDate = new Date(getYear(), getMonth() + 1, 0)
-
-  console.log('\t' + '\t' + (startDate.getMonth() + 1) + '月' + '\t' + startDate.getFullYear() + '\t' + '\t')
-  console.log(weeks.join('\t'))
-  console.log(dispCalender(startDate, endDate))
 }
 
 main()
