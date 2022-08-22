@@ -7,18 +7,9 @@
 <body>
 <script>
   async function get () {
-    const result = await fetch('https://bootcamp.fjord.jp/')
-      .then((response) => {
-        if (response.ok) {
-            return response.text();
-        } else {
-          throw new Error();
-        }
-      })
-      .catch((reason) => {
-        console.log(reason);
-      });
-    console.log(result);
+      const response = await fetch('https://bootcamp.fjord.jp/')
+      const textData = await response.text();
+      console.log(textData);
   }
   get ();
 </script>
