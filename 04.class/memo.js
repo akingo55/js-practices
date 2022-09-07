@@ -101,7 +101,7 @@ class Memo {
   }
 }
 
-class Main {
+class App {
   run () {
     if (process.stdin.isTTY) {
       const memo = new Memo()
@@ -126,5 +126,5 @@ class Main {
   }
 }
 
-const main = new Main()
+const main = new App()
 main.run()
